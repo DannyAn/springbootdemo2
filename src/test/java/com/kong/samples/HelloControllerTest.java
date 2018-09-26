@@ -20,7 +20,7 @@ import static org.hamcrest.CoreMatchers.is;
 @IntegrationTest({"server.port:0",
         "spring.datasource.url:jdbc:h2:mem:springbootdemo2;DB_CLOSE_ON_EXIT=FALSE"})
 public class HelloControllerTest {
-    @Value("${ç}")
+    @Value("${local.server.port}")
     int port;
 
     @Before
