@@ -15,6 +15,11 @@ public class ResultGenerator {
                 .setCode(ResultCode.SUCCESS)
                 .setMessage(DEFAULT_SUCCESS_MESSAGE);
     }
+    public static ResponseResult<String> genCreateSuccessResult() {
+        return new ResponseResult<String>()
+                .setCode(ResultCode.CREATE_SUCCESS)
+                .setMessage(DEFAULT_SUCCESS_MESSAGE);
+    }
     /**
      * 返回默认成功的结果对象
      * @param data
@@ -26,6 +31,14 @@ public class ResultGenerator {
                 .setMessage(DEFAULT_SUCCESS_MESSAGE)
                 .setData(data);
     }
+
+    public static <T> ResponseResult<T> genCreateSuccessResult(T data) {
+        return new ResponseResult<T>()
+                .setCode(ResultCode.CREATE_SUCCESS)
+                .setMessage(DEFAULT_SUCCESS_MESSAGE)
+                .setData(data);
+    }
+
     /**
      * 返回调用错误的具体提示信息
      */

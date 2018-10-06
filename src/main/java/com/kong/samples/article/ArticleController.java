@@ -38,7 +38,7 @@ public class ArticleController {
         ResponseResult<Article> response = null;
         try {
             articleService.saveArticle(article);
-            response = ResultGenerator.genSuccessResult(article);
+            response = ResultGenerator.genCreateSuccessResult(article);
         } catch (RuntimeException ex) {
             logger.error("Failed to save article:",ex);
             response = ResultGenerator.genErrorResult(ex.getMessage(),article);
