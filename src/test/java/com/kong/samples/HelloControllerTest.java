@@ -18,7 +18,7 @@ import static org.hamcrest.CoreMatchers.is;
 @SpringApplicationConfiguration(classes = App.class)
 @WebAppConfiguration
 @IntegrationTest({"server.port:0",
-        "spring.datasource.url:jdbc:h2:mem:springbootdemo2;DB_CLOSE_ON_EXIT=FALSE"})
+        "spring.datasource.url:jdbc:h2:mem:sampledb;DB_CLOSE_ON_EXIT=FALSE"})
 public class HelloControllerTest {
     @Value("${local.server.port}")
     int port;

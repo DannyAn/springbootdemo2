@@ -98,3 +98,16 @@ class Student{
  
     }
 }
+
+
+有些Post 请求URL后面是有参数的， 这时候 你可以这样写
+
+post("/reserve/{hotelId}/{roomNumber}", "My Hotel", 23);
+
+spring boot支持的日志框架有，logback，Log4j2，Log4j和Java Util  Logging，默认使用的是logback日志框架，
+笔者一直在使用log4j2，并且看过某博主写的一篇这几个日志框架的性能比对，决定仍使用log4j2，
+本文章主要介绍spring boot集成log4j2日志框架。
+
+默认情况下spring boot是不将日志输出到日志文件中，但你可以通过
+在application.properites文件中配置logging.file文件名称和logging.path文件路径，
+将日志输出到文件中

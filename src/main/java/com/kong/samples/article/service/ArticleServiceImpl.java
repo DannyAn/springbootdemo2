@@ -12,6 +12,9 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ArticleServiceImpl implements ArticleService {
+    ArticleServiceImpl(){
+        
+    }
     /**
      * 在Spring Framework 4.3以后，如果你只有一个Constructor, 就不再需要写@Autowired，Spring会默认他是autowire目标:  
      * @param articleDao

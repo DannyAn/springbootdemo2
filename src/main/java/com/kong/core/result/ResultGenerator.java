@@ -4,7 +4,7 @@ package com.kong.core.result;
  * 响应结果生成工具
  */
 public class ResultGenerator {
-    private static final String DEFAULT_SUCCESS_MESSAGE = "SUCCESS";
+    public static final String DEFAULT_SUCCESS_MESSAGE = "SUCCESS";
 
     /**
      * 返回默认成功的结果对象
@@ -27,7 +27,7 @@ public class ResultGenerator {
                 .setData(data);
     }
     /**
-     * 返回默认失败的结果对象
+     * 返回调用错误的具体提示信息
      */
     public static ResponseResult<String> genFailResult(String message) {
         return new ResponseResult<String>()
@@ -36,22 +36,24 @@ public class ResultGenerator {
     }
 
     /**
+     * 系统内部错误，通常底层直接跑出异常上来
      * Internal Server Error
      * @param message
      * @param data 出错时返回该数据，方便前段定位传递到后端的数据是否是期望的数据
      * @return
      */
-    public static <T> ResponseResult<T> genFailResult(String message,T data) {
+    public static <T> ResponseResult<T> genErrorResult(String message,T data) {
         return new ResponseResult<T>()
                 .setCode(ResultCode.INTERNAL_SERVER_ERROR)
                 .setMessage(message)
                 .setData(data);
     }
 
-      /**
-     * 返回默内部错误的结果对象
+    /**
+     * 系统内部错误，通常底层直接跑出异常上来
+     * Internal Server Error
      */
-    public static ResponseResult<String> genInternalResult(String message) {
+    public static ResponseResult<String> genErrorResult(String message) {
         return new ResponseResult<String>()
                 .setCode(ResultCode.INTERNAL_SERVER_ERROR)
                 .setMessage(message);

@@ -1,6 +1,7 @@
 package com.kong.samples.article.vo;
 
 import com.kong.samples.article.model.ArticleInfo;
+import org.springframework.beans.BeanUtils;
 
 /**
  * 文章值对象
@@ -17,12 +18,13 @@ public class Article {
         
     }
     public Article(ArticleInfo article) {
-        this.id = article.getId();
-        this.userId = article.getUserId();
-        this.title = article.getTitle();
-        this.summary = article.getSummary();
-        this.status = article.getStatus();
-        this.type = article.getType();
+        BeanUtils.copyProperties(article,this);
+//        this.id = article.getId();
+//        this.userId = article.getUserId();
+//        this.title = article.getTitle();
+//        this.summary = article.getSummary();
+//        this.status = article.getStatus();
+//        this.type = article.getType();
     }
     /**
      * @return the title

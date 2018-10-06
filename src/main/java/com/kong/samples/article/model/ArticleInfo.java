@@ -7,6 +7,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import com.kong.samples.article.vo.Article;
+import org.springframework.beans.BeanUtils;
 
 /**
  * 文章
@@ -20,12 +21,13 @@ public class ArticleInfo {
 
     }
     public ArticleInfo(Article article) {
-        this.id = article.getId();
-        this.userId = article.getUserId();
-        this.title = article.getTitle();
-        this.summary = article.getSummary();
-        this.status = article.getStatus();
-        this.type = article.getType();
+        BeanUtils.copyProperties(article,this);
+//        this.id = article.getId();
+//        this.userId = article.getUserId();
+//        this.title = article.getTitle();
+//        this.summary = article.getSummary();
+//        this.status = article.getStatus();
+//        this.type = article.getType();
     }
 
     @Id
