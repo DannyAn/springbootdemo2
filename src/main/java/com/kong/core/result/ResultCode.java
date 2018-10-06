@@ -24,7 +24,7 @@ public enum ResultCode {
     DELETE_SUCCESS(204), //资源删除成功
     FAIL(400),//失败，调用不合法，参数无效，格式不正确
     UNAUTHORIZED(401),//未认证（签名错误）
-    NOT_FOUND(404),//接口不存在
+    NOT_FOUND(404),//接口不存在，服务器自己返回，通常不备程序所控制
     INTERNAL_SERVER_ERROR(500);//服务器内部错误
 
     private final int code;
