@@ -41,7 +41,7 @@ public class ArticleControllerTest {
         Article article = new Article();
         String title = "Test Title";
         article.setTitle(title);
-        String  summary ="a little doggy.";
+        String summary = "a little doggy.";
         article.setSummary(summary);
         Gson gson = new Gson();
 
@@ -52,20 +52,12 @@ public class ArticleControllerTest {
                 expect().
                 log().body().
 //                log().all().
-                statusCode(200).
-                body("code",equalTo(200)).
-                body("message",equalTo(ResultGenerator.DEFAULT_SUCCESS_MESSAGE)).
-                body("data.title",equalTo(title)).
-                body("data.summary",equalTo(summary)).
+        statusCode(200).
+                body("code", equalTo(200)).
+                body("message", equalTo(ResultGenerator.DEFAULT_SUCCESS_MESSAGE)).
+                body("data.title", equalTo(title)).
+                body("data.summary", equalTo(summary)).
                 when().post("/article");
-               /*
-                body(
-
-                        "order.orderNumber", is(Number.class),
-                        "order.deleteDate", is(nullValue()),
-                        "success", equalTo(true)).
-                when().post("/article");
-        */
     }
 
     @Test
@@ -73,19 +65,18 @@ public class ArticleControllerTest {
         Article article = new Article();
         String title = "Test Title";
         article.setTitle(title);
-        String  summary ="a little doggy.";
+        String summary = "a little doggy.";
         Gson gson = new Gson();
-        //final String bodyString = "{\"customerId\": \"CDICC\",\"broker\": \"test\",\"editUserId\": \"wadexu\"}";
         final String bodyString = gson.toJson(article);
         given().contentType("application/json").
                 request().body(bodyString).
                 expect().
                 statusCode(200).
-                body("code",equalTo(200)).
-                body("message",equalTo(ResultGenerator.DEFAULT_SUCCESS_MESSAGE)).
-                body("data.title",equalTo(title)).
-                body("data.summary",equalTo(summary)).
-                when().put("/article/{articleId}",1);
+                body("code", equalTo(200)).
+                body("message", equalTo(ResultGenerator.DEFAULT_SUCCESS_MESSAGE)).
+                body("data.title", equalTo(title)).
+                body("data.summary", equalTo(summary)).
+                when().put("/article/{articleId}", 1);
     }
 
     @Test
