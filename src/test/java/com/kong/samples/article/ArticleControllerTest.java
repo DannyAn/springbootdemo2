@@ -71,8 +71,9 @@ public class ArticleControllerTest {
     @Test
     public void updateArticle() {
         Article article = new Article();
-        article.setTitle("Test Title");
-        article.setSummary("test summary");
+        String title = "Test Title";
+        article.setTitle(title);
+        String  summary ="a little doggy.";
         Gson gson = new Gson();
         //final String bodyString = "{\"customerId\": \"CDICC\",\"broker\": \"test\",\"editUserId\": \"wadexu\"}";
         final String bodyString = gson.toJson(article);
@@ -80,10 +81,10 @@ public class ArticleControllerTest {
                 request().body(bodyString).
                 expect().
                 statusCode(200).
-                body(
-                        "order.orderNumber", is(Number.class),
-                        "order.deleteDate", is(nullValue()),
-                        "success", equalTo(true)).
+                body("code",equalTo(200)).
+                body("message",equalTo(ResultGenerator.DEFAULT_SUCCESS_MESSAGE)).
+                body("data.title",equalTo(title)).
+                body("data.summary",equalTo(summary)).
                 when().put("/article/{articleId}",1);
     }
 
